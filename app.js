@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 const dotenv = require("dotenv").config();
+const serverless = require('serverless-http');  
+
 const contactRoutes = require("./routes/routes");
 const userRoutes = require("./routes/userRoutes");
 
@@ -12,7 +14,7 @@ app.use("/api/contacts", contactRoutes);
 app.use("/api/users", userRoutes);
 app.use(errorHandler);
 app.get("/",(req,res)=>{res.send("workingapi")})
-module.exports = app;
+module.exports = serverless(app);
 // Start the server
 // const PORT = process.env.PORT || 3000;
 // app.listen(PORT, () => {
