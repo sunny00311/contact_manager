@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 const dotenv = require("dotenv").config();
-const serverless = require('serverless-http');  
 
 const contactRoutes = require("./routes/routes");
 const userRoutes = require("./routes/userRoutes");
@@ -13,13 +12,10 @@ app.use(express.json());
 app.use("/api/contacts", contactRoutes);
 app.use("/api/users", userRoutes);
 app.use(errorHandler);
-app.get("/",(req,res)=>{res.send("workingapi")})
+app.get("/",(req,res)=>{res.json("workingapi")})
 module.exports = serverless(app);
 // Start the server
-// const PORT = process.env.PORT || 3000;
-// app.listen(PORT, () => {
-//   console.log(`Server running on http://localhost:${PORT}`);
-// });
-if (require.main === module) {
-  app.listen(port, () => console.log(`Server running on port ${port}`));
-}
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
