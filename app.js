@@ -12,7 +12,7 @@ app.use(express.json());
 app.use("/api/contacts", contactRoutes);
 app.use("/api/users", userRoutes);
 app.use(errorHandler);
-app.get("/",(req,res)=>{res.json("working-api")})
+app.get("/",(req,res)=>{res.json("working-2 bj3 api")})
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
