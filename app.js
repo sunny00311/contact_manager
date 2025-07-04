@@ -12,8 +12,7 @@ app.use(express.json());
 app.use("/api/contacts", contactRoutes);
 app.use("/api/users", userRoutes);
 app.use(errorHandler);
-app.get("/",(req,res)=>{res.json("workingapi")})
-module.exports = serverless(app);
+app.get("/",(req,res)=>{res.json("working-api")})
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
